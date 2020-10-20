@@ -17,7 +17,8 @@ void delfront(int qar[] , int *f ,int *r)
       cout <<"queue empty" <<endl;
        return;
      }
-  cout <<qar[*f++] <<endl;
+  cout <<qar[*f] <<endl;
+  ++(*f);
   if(*f > *r)
   {
     *f = 0;
@@ -31,7 +32,7 @@ void delrear(int qar[],int *f ,int *r)
     cout <<"queue empty" <<endl;
     return;
   }
-  cout <<qar[*r--] <<endl;
+  cout <<qar[(*r)--] <<endl;
   if(*f > *r)
   {
     *f = 0;
@@ -46,6 +47,7 @@ void insrear(int qar[],int *r)
      cout <<"queue full" <<endl;
     return ;
   }
+  cout <<"enter option" <<endl;
   cin >> it;
   qar[++(*r)]=it;
 }
@@ -54,11 +56,13 @@ void insfront(int qar[],int *f , int *r)
   int it;
   if (*f == 0 && *r == -1)
   {
+    cout <<"enter option" <<endl;
     cin >> it;
     qar[++(*r)]=it;
   }
   else if(*f >0)
   {
+    cout <<"enter option" <<endl;
     cin >> it;
     qar[--(*f)]=it;
   }
@@ -83,7 +87,7 @@ int main()
 {
   int ch;
   while(1)
-  {
+  { cout <<"enter option" <<endl;
     cin >> ch;
     switch(ch)
     {
@@ -103,7 +107,7 @@ int main()
              status(qar,&f,&r);
              break;
       default:
-              break;
+              exit(0);
     }
   }
 
