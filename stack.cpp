@@ -7,7 +7,7 @@ private:
     int top;
     int arr[5];
 public:
-    stack ()
+    stack () 
     {
         top=-1;
         for (int i=0;i<5;i++)
