@@ -7,7 +7,8 @@ class Queue
          Queue()
          {
              cu=0;
-             f=r=-1;
+             f=-1;
+             r=-1;
 
              for (int i=0;i<5;i++)
              {
@@ -23,7 +24,7 @@ class Queue
          }
          bool isFull()
          {
-             if ((r%4) == f)
+             if (((r+1)%5) == f)
                return true;
              else
                return false;
@@ -60,8 +61,9 @@ class Queue
              {
                  x =arr[r];
                  arr[f] =0;
-                 r =f =-1;
-                 cu++;
+                 r =-1;
+                 f =-1;
+                 cu--;
                  return x;
              }
              else
@@ -69,7 +71,7 @@ class Queue
                   x =arr[f];
                  arr[f] =0;
                  f=(f+1)%5;
-                 cu++;
+                 cu--;
                  return x;
              }
              
@@ -86,7 +88,7 @@ int main(void){
     int op=0,val;
     do 
     {
-        cout << "endter" <<endl;
+        cout << "enter" <<endl;
         cin >> op;
         switch (op)
         {
