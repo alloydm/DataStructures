@@ -25,7 +25,10 @@ void enq(int *r)
     while (j>=-1  && it < ar[j])
     {
         ar[j+1]=ar[j];
+       
         j--;
+        
+        
     }
     ar[j+1]=it;
 }
