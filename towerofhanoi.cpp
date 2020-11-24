@@ -1,6 +1,6 @@
 // C++ recursive function to  
 // solve tower of hanoi puzzle  
-#include <bits/stdc++.h> 
+#include <iostream> 
 using namespace std; 
   
 void towerOfHanoi(int n, char from_rod, 
