@@ -83,6 +83,31 @@ class Bst
         cout << r -> val << "\n"; // 6
         print2D(r -> left, space); // Process left child  7
   }
+  void printpreorder(TreeNode *r)
+  {
+    if (r == NULL)
+       return;
+    cout <<r->val<<" ";
+    printpreorder(r->left);
+    printpreorder(r->right);
+
+  }
+  void printinorder(TreeNode *r)
+  {
+    if (r == NULL)
+      return;
+    printinorder(r->left);
+    cout << r->val <<" ";
+    printinorder(r->right);
+  }
+  void printpostorder(TreeNode *r)
+  {
+    if (r == NULL)
+      return;
+    printpostorder(r->left);
+    printpostorder(r->right);
+    cout << r->val << " ";
+  }
       
 };
 
@@ -118,6 +143,7 @@ int main() {
       cout << endl;
       break;
     case 2:
+       
      
     case 3:
       
@@ -125,6 +151,16 @@ int main() {
       cout << "PRINT 2D: " << endl;
       obj.print2D(obj.root, 5);
       cout << endl;
+        cout << "print pre order" <<endl;
+       obj.printpreorder(obj.root);
+       cout <<endl;
+        cout << "print in order" <<endl;
+       obj.printinorder(obj.root);
+       cout <<endl;
+        cout << "print post order" <<endl;
+       obj.printpostorder(obj.root);
+       cout <<endl;
+      
     //   cout << "Print Level Order BFS: \n";
     //   obj.printLevelOrderBFS(obj.root);
     //   cout << endl;
