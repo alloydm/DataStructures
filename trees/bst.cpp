@@ -108,6 +108,39 @@ class Bst
     printpostorder(r->right);
     cout << r->val << " ";
   }
+  TreeNode* itersearch(int val)
+  {
+    if(root == NULL)
+       return root;
+    else
+    {
+      TreeNode* temp;
+      temp =root;
+      while(temp!=NULL)
+      {
+        if (temp->val == val)
+          return temp;
+        else if(temp->val < val)
+            temp = temp->right;
+        else
+          temp = temp->left;
+        
+           
+      }
+    }
+    return NULL;
+  }
+  TreeNode * recsearch(TreeNode * r, int val) {
+    if (r == NULL || r -> val == val)
+      return r;
+ 
+    else if (val < r -> val)
+      return recsearch(r -> left, val);
+ 
+    else
+      return recsearch(r -> right, val);
+    return NULL;
+  }
       
 };
 
@@ -143,6 +176,18 @@ int main() {
       cout << endl;
       break;
     case 2:
+        cout <<"search" <<endl;
+        cout << " enter value of tree node to b searched: ";
+        cin >>val;
+        // new_node=obj.itersearch(val);
+          new_node = obj.recsearch(obj.root,val);
+          if (new_node != NULL) {
+        cout << "Value found" << endl;
+      } else {
+        cout << "Value NOT found" << endl;
+      }
+        break;
+        
        
      
     case 3:
