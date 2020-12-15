@@ -141,6 +141,22 @@ class Bst
       return recsearch(r -> right, val);
     return NULL;
   }
+  int height(TreeNode* r)
+  {
+    if(r == NULL)
+      return -1;
+    else
+    {
+      int lheight = height(r->left);
+      int rheight = height (r->right);
+      if (lheight > rheight)
+         return (lheight+1);
+      else
+        return (rheight+1);
+      
+    }
+    
+  }
       
 };
 
@@ -219,6 +235,9 @@ int main() {
       //	      obj.printPostorder(obj.root);
       break;
     case 5:
+        cout<<"height of a tree" <<endl;
+        cout<<obj.height(obj.root)<<endl;
+        break;
      
     
     default:
