@@ -157,6 +157,22 @@ class Bst
     }
     
   }
+  void printLevelOrderBFS(TreeNode* r)
+  {
+    int h = height(r);
+    for (int i=0;i<=h;i++)
+       givenlevelorder(r,i);
+  }
+  void givenlevelorder(TreeNode* r,int level)
+  {
+    if (r == NULL)
+      return;
+    else if (level == 0)
+       cout << r->val <<" ";
+    else
+       givenlevelorder(r->left,level-1);
+       givenlevelorder(r->right,level-1);
+  }
       
 };
 
@@ -222,9 +238,9 @@ int main() {
        obj.printpostorder(obj.root);
        cout <<endl;
       
-    //   cout << "Print Level Order BFS: \n";
-    //   obj.printLevelOrderBFS(obj.root);
-    //   cout << endl;
+      cout << "Print Level Order BFS: \n";
+       obj.printLevelOrderBFS(obj.root);
+       cout << endl;
       //	      cout <<"PRE-ORDER: ";
       //	      obj.printPreorder(obj.root);
       //	      cout<<endl;
