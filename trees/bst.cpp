@@ -173,6 +173,48 @@ class Bst
        givenlevelorder(r->left,level-1);
        givenlevelorder(r->right,level-1);
   }
+  TreeNode* minvalnode(TreeNode* n)
+  {
+    TreeNode* curr = n;
+     while(curr->left!=NULL)
+       {
+         curr = curr->left;
+       }
+      return curr;
+  }
+  TreeNode* deletenode(TreeNode* r,int v)
+  {
+    if (r==NULL)
+      return r;
+    else if(v > r->val)
+       r->right = deletenode(r->right,v);
+    else if(v < r->val)
+       r->left = deletenode(r->left,v);
+    else
+    {
+      if (r->left == NULL)
+      {
+        TreeNode* temp = r->right;
+        delete r;
+        return temp;
+      }
+      else if( r->right == NULL)
+      {
+        TreeNode* temp = r->left;
+        delete r;
+        return temp;
+      }
+      else
+      {
+        TreeNode* temp = minvalnode(r->right);
+        r->val = temp->val;
+        r->right = deletenode(r->right,temp->val);
+      }
+      
+    }
+    return r;
+    
+  }
       
 };
 
@@ -223,6 +265,17 @@ int main() {
        
      
     case 3:
+        cout << "DELETE" << endl;
+      cout << "Enter VALUE of TREE NODE to DELETE in BST: ";
+      cin >> val;
+      new_node = obj.itersearch(val);
+      if (new_node != NULL) {
+        obj.deletenode(obj.root, val);
+        cout << "Value Deleted" << endl;
+      } else {
+        cout << "Value NOT found" << endl;
+      }
+      break;
       
     case 4:
       cout << "PRINT 2D: " << endl;
