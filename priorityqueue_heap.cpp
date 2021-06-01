@@ -2,7 +2,7 @@
 // using array implementation of
 // binary heap
 
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 int H[50];
