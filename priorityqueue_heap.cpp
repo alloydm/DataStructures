@@ -1,6 +1,7 @@
 // C++ code to implement priority-queue
 // using array implementation of
 // binary heap
+//heap sort logic for shift up and shift down
 
 #include <iostream>
 using namespace std;
