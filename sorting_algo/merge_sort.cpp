@@ -4,7 +4,7 @@ using namespace std;
 
 void merge(int a[],int l,int m,int r)
 {
-    int temp[r+1];
+    int temp[r+1]; // here r+1 since r is total  no of elements in a-1
     int i,k;
     i=k=l;
     int j=m+1;
